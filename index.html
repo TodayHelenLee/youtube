@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
+      integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/all.css"
+    />
+    <link rel="stylesheet" href="youtube.css">
+  </head>
+  <body>
+    <div id="add">
+      <div class="list">
+        <div class="listDetail">
+          <div class="arrow">
+            <i class="fas fa-angle-double-right"></i>
+          </div>
+          <div class="many">
+            <h2>播放列表</h2>
+            <hr />
+              <a href="" ><h3 class="fan" v-on:click.prevent="emit(0,87)">范瑋琪精選</h3></a>
+            <a href="" ><h3 class="jhou" v-on:click.prevent="emit(1,127)">周杰倫精選</h3></a>
+            <a href="" ><h3 class="chang" v-on:click.prevent="emit(2,167)">張宇精選</h3>
+          </a>
+            <h2>加入最愛</h2>
+            <hr />
+            <a href="">
+            <h3 class="love" v-on:click.prevent="emit(3,277)">我的最愛</h3>
+          </a>
+          </div>
+        </div>
+        <div class="clears"></div>
+
+        <div class="allList">
+          <div class="introduce">
+            <a href="" class="motion"
+              ><h3>LIST<i class="fas fa-bars"></i></h3
+            ></a>
+          </div>
+          <ul v-for="item in list">
+            <li>
+              <h1>{{item.name}}</h1>
+              <div class="listBar" v-for="i,index in item.cdName">
+                <hr />
+                <a
+                  style=" width: 100%; height: 10px"
+                  href=""
+                  ><h3
+                    v-on:click.prevent="ejectStart(item.songName[index],item.time[index],i,index,item.name)"
+                    style="display: inline-block"
+                  >
+                    {{item.songName[index]}}
+                  </h3></a>
+                  <p style="display: inline-block">
+                    <i id="heart" class="fas" :class="item.like[index]"></i></p
+                >
+                <p style="color: rgba(0, 0, 0, 0.527); font-size: 14px">
+                  {{i}}
+                </p>
+                <p style="color: red">{{item.time[index]}}</p>
+                <hr />
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="cdPlayer">
+        <div 
+          id="player"
+          style="transform: scale(0.7); margin-left: -50px"
+        ></div>
+        
+        <div class="bottom">
+          <a href="">
+          <div class="wrapL" v-on:click.prevent="ejectEnd"></div>          
+          <img
+            class="like"
+            src="https://cdn2.iconfinder.com/data/icons/circle-icons-1/64/heart-256.png"
+          /></a>
+          <a href="#" >
+          <img
+            class="player"
+            src="https://cdn0.iconfinder.com/data/icons/media-greyscale/60/001_-_play-256.png"
+          /></a>
+          <div class="liters">
+            <p class="cd">{{cdName}}</p><p class="time">{{time}}</p>
+            <h1 class="song">{{songName}}</h1>
+          </div>
+        </div>
+        <div class="left">
+          <a href="#" >
+          <div class="previous" v-on:click.prevent="decreaseIndex">
+            <div class="wrap"></div>
+            <img
+              src="https://cdn0.iconfinder.com/data/icons/media-greyscale/60/003_-_Rewind-256.png"
+            />
+          </div></a><a href="#" >
+          <div class="next" v-on:click.prevent="addIndex">
+            <div class="wrap"></div>
+            <img
+              src="https://cdn0.iconfinder.com/data/icons/media-greyscale/60/002_-_fast_forward-256.png"
+            />
+          </div></a>
+          <a href="#">
+          <div class="repeat">
+            <div class="cover"></div>
+            <img src="https://cdn0.iconfinder.com/data/icons/media-greyscale/60/017_-_Reload-512.png" >
+          </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.6/vue.common.dev.js"></script>
+    <script src="youtube.js"></script>
+  </body>
+</html>
