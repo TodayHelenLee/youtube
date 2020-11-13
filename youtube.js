@@ -6,6 +6,7 @@ var player;
       var indexG;
       var vList;
       var nowIndex;
+      var speaker;
 
       var listF = ["7_S_EjaUhzE", "Bpj02hx083c", "CvNeikSsivw"];
       var listJ = ["lKjI9ehi3A4", "NDFULbHgL6E", "Bbp9ZaJD_eA"];
@@ -96,7 +97,11 @@ var player;
       };
 
       function onPlayerStateChange(event) {
+        if(event.data === 1){
+          speaker = player.getPlaylistIndex()
+        }
         if (event.data === 5) {
+          
           document.querySelector(".player").src =
             "https://cdn0.iconfinder.com/data/icons/media-greyscale/60/001_-_play-256.png";
             
@@ -124,6 +129,7 @@ var player;
             player.stopVideo();
             
             }
+            
         } 
       }
 
@@ -233,6 +239,7 @@ var player;
               cdName: ["真善美", "我們的紀念日", "哲學家"],
               id: ["7_S_EjaUhzE", "Bpj02hx083c", "CvNeikSsivw"],
               like: ["", "", ""],
+              play: ["", "", ""],
             },
             {
               name: "周杰倫精選",
@@ -241,6 +248,7 @@ var player;
               cdName: ["魔杰座", "范特西", "七里香"],
               id: ["lKjI9ehi3A4", "NDFULbHgL6E", "Bbp9ZaJD_eA"],
               like: ["", "", ""],
+              play: ["", "", ""],
             },
             {
               name: "張宇精選",
@@ -249,6 +257,7 @@ var player;
               cdName: ["雨一直下", "大丈夫", "月亮、太陽"],
               id: ["JdDPVmfETy8", "lKMGL_CHBik", "WadaEMcVojM"],
               like: ["", "", ""],
+              play: ["", "", ""],
             },
             arr,
           ],
