@@ -21,6 +21,7 @@ var player;
         cdName: [],
         id: [],
         like: [],
+        play:[],
       };
 
       function ejectStart(index, arrs) {
@@ -46,6 +47,7 @@ var player;
             cdName: ["真善美", "我們的紀念日", "哲學家"],
             id: ["7_S_EjaUhzE", "Bpj02hx083c", "CvNeikSsivw"],
             like: ["", "", ""],
+            play: ["", "", ""],
           },
           {
             name: "周杰倫精選",
@@ -54,6 +56,7 @@ var player;
             cdName: ["魔杰座", "范特西", "七里香"],
             id: ["lKjI9ehi3A4", "NDFULbHgL6E", "Bbp9ZaJD_eA"],
             like: ["", "", ""],
+            play: ["", "", ""],
           },
           {
             name: "張宇精選",
@@ -62,6 +65,7 @@ var player;
             cdName: ["雨一直下", "大丈夫", "月亮、太陽"],
             id: ["JdDPVmfETy8", "lKMGL_CHBik", "WadaEMcVojM"],
             like: ["", "", ""],
+            play: ["", "", ""],
           },
         ];
 
@@ -82,6 +86,7 @@ var player;
         arr.cdName.push(newSong.cdName[index]);
         arr.id.push(newSong.id[index]);
         arr.like.push("fa-heart");
+        arr.play.push("");
       }
 
       window.onYouTubeIframeAPIReady = function () {
@@ -98,7 +103,9 @@ var player;
 
       function onPlayerStateChange(event) {
         if(event.data === 1){
-          speaker = player.getPlaylistIndex()
+          speaker = player.getPlaylistIndex();
+          vList.play[speaker] = ' fa-volume-up';
+          
         }
         if (event.data === 5) {
           
@@ -304,9 +311,9 @@ var player;
             document.querySelector('.song').style.color = 'pink';
 
             this.number = i;
-            this.list = [];
-            this.list.push(this.lists[i]);
-            vList = this.list;
+            vList = [];
+            vList.push(this.lists[i]);
+            this.list = vList;
             var yT = "translate(0px," + y + "px) ";
             document.querySelector(
               ".fas.fa-angle-double-right"
