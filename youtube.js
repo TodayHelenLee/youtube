@@ -281,7 +281,7 @@ var player;
             }else if(this.test === 123){
               this.test = ''
             };
-            alert(this.test1)
+            //alert(this.test1)
           
           },
           deep:true
