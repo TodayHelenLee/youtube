@@ -7,6 +7,7 @@ var player;
       var vList;
       var nowIndex;
       var speaker;
+      function aaa(){return speaker};
 
       var listF = ["7_S_EjaUhzE", "Bpj02hx083c", "CvNeikSsivw"];
       var listJ = ["lKjI9ehi3A4", "NDFULbHgL6E", "Bbp9ZaJD_eA"];
@@ -104,7 +105,7 @@ var player;
       function onPlayerStateChange(event) {
         if(event.data === 1){
           speaker = player.getPlaylistIndex();
-          vList.play[speaker] = ' fa-volume-up';
+          //vList.play[speaker] = ' fa-volume-up';
           
         }
         if (event.data === 5) {
@@ -231,6 +232,7 @@ var player;
         el: "#add",
 
         data: {
+          test1:aaa(),
           test:'',
           number: 0,
           name: "",
@@ -270,6 +272,7 @@ var player;
             arr,
           ],
         },
+        
       watch: {
         lists:{
           handler(val,oldVal){
@@ -278,6 +281,7 @@ var player;
             }else if(this.test === 123){
               this.test = ''
             };
+            alert(this.test1)
           
           },
           deep:true
@@ -285,10 +289,7 @@ var player;
               },
             
           },
-          
-        
-      
-
+                        
         methods: {
           decreaseIndex: function () {
             
@@ -346,8 +347,8 @@ var player;
 
             document.querySelector('#player').style.display = 'block';
             document.querySelector('.cd').style.color = 'black';
-          document.querySelector('.time').style.color = 'red';
-          document.querySelector('.song').style.color = 'black';
+            document.querySelector('.time').style.color = 'red';
+            document.querySelector('.song').style.color = 'black';
 
             this.name = name;
             nowIndex = index;
