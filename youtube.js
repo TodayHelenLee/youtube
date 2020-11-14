@@ -269,6 +269,14 @@ var player;
             arr,
           ],
         },
+      watch: {
+        lists:{
+          handler(val,oldVal){
+            
+          },
+          deep:true,
+        },
+      },
 
         methods: {
           decreaseIndex: function () {
