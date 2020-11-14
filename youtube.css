@@ -16,6 +16,10 @@ ul {
   position: relative;
 }
 
+.hideOr {
+  color: white;
+}
+
 .list {
   display: inline-block;
   height: 600px;

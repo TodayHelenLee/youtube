@@ -231,6 +231,7 @@ var player;
         el: "#add",
 
         data: {
+          test:'',
           number: 0,
           name: "",
           check: "",
@@ -272,11 +273,21 @@ var player;
       watch: {
         lists:{
           handler(val,oldVal){
+            if(this.test === ''){
+              this.test = 123
+            }else if(this.test === 123){
+              this.test = ''
+            };
+          
+          },
+          deep:true
+          
+              },
             
           },
-          deep:true,
-        },
-      },
+          
+        
+      
 
         methods: {
           decreaseIndex: function () {
@@ -357,6 +368,7 @@ var player;
           },
 
           ejectEnd: function () {
+            
             var newList = this.lists;
 
             function getValue() {
