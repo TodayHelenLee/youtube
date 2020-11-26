@@ -68,6 +68,7 @@ ul {
   top: 20px;
   opacity: 1;
   background-color: white;
+  overflow: scroll;
 }
 
 .listBar > p {
