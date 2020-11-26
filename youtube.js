@@ -377,10 +377,12 @@ var player;
 
             var name = this.name;
             var index = nowIndex;
-
-            this.lists[this.number].like[nowIndex] = "fa-heart";
+            if(document.querySelector('#player').style.display === 'block'){
+              this.lists[this.number].like[nowIndex] = "fa-heart";
 
             ejectEnd(name, index, getValue());
+            }
+            
           },
 
           turnNum: function () {
